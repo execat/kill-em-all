@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Toast;
 
 public class MainActivity extends Activity {
 
@@ -27,11 +28,23 @@ public class MainActivity extends Activity {
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
+        switch (id) {
+            case R.id.action_capture_image:
+                Toast.makeText(this, "Capturing image...", Toast.LENGTH_LONG);
+                return true;
 
-        return super.onOptionsItemSelected(item);
+            case R.id.action_open_obituary:
+                Toast.makeText(this, "Opening obituary page...", Toast.LENGTH_LONG);
+                return true;
+
+            case R.id.action_view_list:
+                Toast.makeText(this, "Viewing list...", Toast.LENGTH_LONG);
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
     }
+
 }

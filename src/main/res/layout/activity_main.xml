@@ -25,7 +25,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/viewListButton"
+            android:id="@+id/action_view_list"
             android:background="@android:color/transparent"
             android:layout_alignParentBottom="true"
             android:layout_alignParentStart="true"
@@ -35,7 +35,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/captureImage"
+            android:id="@+id/action_capture_image"
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:background="@android:color/transparent"
@@ -46,7 +46,7 @@
         <ImageButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/obituaryButton"
+            android:id="@+id/action_open_obituary"
             android:background="@android:color/transparent"
             android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
