@@ -49,10 +49,12 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.nio.ByteBuffer;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
@@ -410,7 +412,7 @@ public class MainFragment extends Fragment
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        mFile = new File(getActivity().getExternalFilesDir(null), "pic.jpg");
+        mFile = new File(getActivity().getExternalFilesDir(null), "current.jpg");
     }
 
     @Override
@@ -890,7 +892,9 @@ public class MainFragment extends Fragment
             buffer.get(bytes);
             FileOutputStream output = null;
             try {
-                output = new FileOutputStream(mFile);
+                String timestamp = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date());
+                File file = new File(mFile.getParentFile(), timestamp + ".jpg");
+                output = new FileOutputStream(file);
                 output.write(bytes);
             } catch (IOException e) {
                 e.printStackTrace();
