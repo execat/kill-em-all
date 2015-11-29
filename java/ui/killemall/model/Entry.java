@@ -33,12 +33,12 @@ public class Entry {
     public String toString() {
         final String separator = "::";
 
-        String locationString = "";
+        String locationString = null;
         if (location != null) {
             locationString = Double.toString(location.getLongitude())
                     + separator + Double.toString(location.getLatitude());
         } else {
-            locationString = "0.0" + separator + "0.0";
+            locationString = "NA" + separator + "NA";
             System.out.println("FAILED LOCATION IS NULL");
         }
 

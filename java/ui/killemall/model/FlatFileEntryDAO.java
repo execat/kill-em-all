@@ -20,7 +20,7 @@ import java.util.Comparator;
 /**
  * Class FlatFileEntryDAO:
  *
- * Disk access object class for writing contacts to flat file
+ * Disk access object class for writing entrys to flat file
  * This is where all the writing, reading, and updating of records happens.
  *
  * author: Anuj More (atm140330)
@@ -210,16 +210,16 @@ public class FlatFileEntryDAO implements EntryDAO, Comparator<Entry> {
     /**
      * writeToFile
      *
-     * Writes a contacts array to a file
+     * Writes a entrys array to a file
      *
      * This method reads contents of File in a temp array and writes the CSV-like notation of Entry[] to file
      *
-     * @param contacts
+     * @param entrys
      * @param file
      * @return
      */
-    private boolean writeToFile(ArrayList<Entry> contacts, File file) {
-        System.out.println("CALLING WRITE TO FILE: \n\n" + contacts);
+    private boolean writeToFile(ArrayList<Entry> entrys, File file) {
+        System.out.println("CALLING WRITE TO FILE: \n\n" + entrys);
         sort();
         createFile(file);
 
@@ -228,8 +228,8 @@ public class FlatFileEntryDAO implements EntryDAO, Comparator<Entry> {
             // These should ideally be two try-catch blocks
             fw = new FileWriter(file);
 
-            for (Entry contact: contacts) {
-                fw.write(contact.toString() + "\n");
+            for (Entry entry: entrys) {
+                fw.write(entry.toString() + "\n");
             }
 
             fw.flush();
@@ -247,32 +247,32 @@ public class FlatFileEntryDAO implements EntryDAO, Comparator<Entry> {
      *
      * Impelemnt later, currently does nothing
      *
-     * @param contact
+     * @param entry
      * @return
      */
-    private boolean verifyValidity(Entry contact, ArrayList<Entry> excludeList) {
+    private boolean verifyValidity(Entry entry, ArrayList<Entry> excludeList) {
         return true;
     }
 
     /**
      * addEntry
      *
-     * Adds the passed contact to the end of the list
+     * Adds the passed entry to the end of the list
      *
-     * @param contact
+     * @param entry
      * @return
      */
     @Override
-    public Entry addEntry(Entry contact) {
+    public Entry addEntry(Entry entry) {
         // Check
-        if (!verifyValidity(contact, null)) {
+        if (!verifyValidity(entry, null)) {
             return null;
         }
 
         // Add
-        data.add(contact);
+        data.add(entry);
         writeToFile(data, dataFile);
-        return contact;
+        return entry;
     }
 
     /**
@@ -304,54 +304,54 @@ public class FlatFileEntryDAO implements EntryDAO, Comparator<Entry> {
     /**
      * deleteEntry
      *
-     * Deletes a passed contact
+     * Deletes a passed entry
      *
-     * @param contact
+     * @param entry
      * @return
      */
     @Override
-    public Entry deleteEntry(Entry contact) {
-        data.remove(contact);
+    public Entry deleteEntry(Entry entry) {
+        data.remove(entry);
         writeToFile(data, dataFile);
-        return contact;
+        return entry;
     }
 
     /**
      * updateEntryAt
      *
-     * Updates a contact to the passed contact at the given index subject to validation preconditions
+     * Updates a entry to the passed entry at the given index subject to validation preconditions
      *
      * @param index
-     * @param contact
+     * @param entry
      * @return
      */
     @Override
-    public Entry updateEntryAt(int index, Entry contact) {
+    public Entry updateEntryAt(int index, Entry entry) {
         Entry oldEntry = data.get(index);
-        updateEntry(oldEntry, contact);
+        updateEntry(oldEntry, entry);
         writeToFile(data, dataFile);
-        return contact;
+        return entry;
     }
 
     /**
      * deleteEntryAt
      *
-     * Deletes a contact at the given position
+     * Deletes a entry at the given position
      *
      * @param index
      * @return
      */
     @Override
     public Entry deleteEntryAt(int index) {
-        Entry contact = data.get(index);
-        deleteEntry(contact);
+        Entry entry = data.get(index);
+        deleteEntry(entry);
         writeToFile(data, dataFile);
-        return contact;
+        return entry;
 
         /* Alternative
         data.remove(index)
         writeToFile(data, dataFile);
-        return contact;
+        return entry;
          */
     }
 
@@ -360,4 +360,3 @@ public class FlatFileEntryDAO implements EntryDAO, Comparator<Entry> {
         return lhs.getStatus().compareTo(rhs.getStatus());
     }
 }
-

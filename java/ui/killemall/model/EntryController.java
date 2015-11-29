@@ -12,27 +12,27 @@ public class EntryController {
         dao = new FlatFileEntryDAO();
     }
 
-    // Adds contact
-    public static Entry addEntry(Entry contact) {
-        return dao.addEntry(contact);
+    // Adds entry
+    public static Entry addEntry(Entry entry) {
+        return dao.addEntry(entry);
     }
 
-    // Updates contact at a position
-    public static Entry updateEntryAt(int i, Entry contact) {
-        return dao.updateEntryAt(i, contact);
+    // Updates entry at a position
+    public static Entry updateEntryAt(int i, Entry entry) {
+        return dao.updateEntryAt(i, entry);
     }
 
-    // Fetches all the contacts
+    // Fetches all the entrys
     public static ArrayList<Entry> fetchAll() {
         return dao.fetchAll();
     }
 
-    // Fetches a contact at position "index"
+    // Fetches a entry at position "index"
     public static Entry fetch(int index) {
         return dao.fetch(index);
     }
 
-    // Deletes a contact at position "index"
+    // Deletes a entry at position "index"
     public static Entry delete(int index) {
         return dao.deleteEntryAt(index);
     }
