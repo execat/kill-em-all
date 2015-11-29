@@ -11,9 +11,9 @@ import com.example.android.camera2basic.R;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class HitlistFragment extends Fragment {
+public class HitlistActivityFragment extends Fragment {
 
-    public HitlistFragment() {
+    public HitlistActivityFragment() {
     }
 
     @Override

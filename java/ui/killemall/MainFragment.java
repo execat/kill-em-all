@@ -8,6 +8,7 @@ import android.app.DialogFragment;
 import android.app.Fragment;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.content.res.Configuration;
 import android.graphics.ImageFormat;
@@ -448,6 +449,8 @@ public class MainFragment extends Fragment
     public void onViewCreated(final View view, Bundle savedInstanceState) {
         view.findViewById(R.id.picture).setOnClickListener(this);
         view.findViewById(R.id.info).setOnClickListener(this);
+        view.findViewById(R.id.hitlist).setOnClickListener(this);
+        view.findViewById(R.id.obituary).setOnClickListener(this);
         mTextureView = (AutoFitTextureView) view.findViewById(R.id.texture);
     }
 
@@ -920,6 +923,18 @@ public class MainFragment extends Fragment
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
+            case R.id.hitlist: {
+                Activity activity = getActivity();
+                Intent intent = new Intent(activity, HitlistActivity.class);
+                activity.startActivity(intent);
+                break;
+            }
+            case R.id.obituary: {
+                Activity activity = getActivity();
+                // Intent intent = new Intent(activity, HitlistActivity.class);
+                // activity.startActivity(intent);
+                break;
+            }
             case R.id.picture: {
                 takePicture();
                 break;

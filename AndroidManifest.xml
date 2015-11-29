@@ -40,6 +40,7 @@
         <activity
             android:name="ui.killemall.HitlistActivity"
             android:label="@string/title_activity_hitlist"
+            android:theme="@style/ListTheme"
             android:parentActivityName="ui.killemall.MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
