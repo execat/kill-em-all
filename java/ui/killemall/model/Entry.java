@@ -32,14 +32,19 @@ public class Entry {
     @Override
     public String toString() {
         final String separator = "::";
+
+        String locationString = "";
+        if (location != null) {
+            locationString = Double.toString(location.getLongitude())
+                    + separator + Double.toString(location.getLatitude());
+        } else {
+            locationString = "0.0" + separator + "0.0";
+            System.out.println("FAILED LOCATION IS NULL");
+        }
+
         return (file.getAbsolutePath() + separator +
                 timestamp + separator +
-                /*
-                Double.toString(location.getLongitude()) + separator +
-                Double.toString(location.getLongitude()) + separator +
-                */
-                "0.0" + separator +
-                "0.0" + separator +
+                locationString + separator +
                 status.toString());
     }
 
