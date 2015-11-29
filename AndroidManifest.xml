@@ -37,6 +37,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="ui.killemall.HitlistActivity"
+            android:label="@string/title_activity_hitlist"
+            android:parentActivityName="ui.killemall.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ui.killemall.MainActivity" />
+        </activity>
     </application>
 
 </manifest>
