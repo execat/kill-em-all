@@ -25,6 +25,9 @@ import android.hardware.camera2.CaptureRequest;
 import android.hardware.camera2.CaptureResult;
 import android.hardware.camera2.TotalCaptureResult;
 import android.hardware.camera2.params.StreamConfigurationMap;
+import android.location.Location;
+import android.location.LocationListener;
+import android.location.LocationManager;
 import android.media.Image;
 import android.media.ImageReader;
 import android.os.Bundle;
@@ -32,6 +35,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.support.annotation.NonNull;
 import android.support.v13.app.FragmentCompat;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.content.ContextCompat;
 import android.util.Log;
 import android.util.Size;
@@ -59,8 +63,13 @@ import java.util.List;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
+import ui.killemall.model.Entry;
+import ui.killemall.model.EntryController;
+
 public class MainFragment extends Fragment
         implements View.OnClickListener, FragmentCompat.OnRequestPermissionsResultCallback {
+
+    static EntryController controller = new EntryController();
 
     /**
      * Conversion from screen rotation to JPEG orientation.
@@ -206,11 +215,13 @@ public class MainFragment extends Fragment
      * An additional thread for running tasks that shouldn't block the UI.
      */
     private HandlerThread mBackgroundThread;
+    private HandlerThread mLocationThread;
 
     /**
      * A {@link Handler} for running tasks in the background.
      */
     private Handler mBackgroundHandler;
+    private Handler mLocationHandler;
 
     /**
      * An {@link ImageReader} that handles still image capture.
@@ -235,6 +246,36 @@ public class MainFragment extends Fragment
         }
 
     };
+
+
+    /**
+     * Location callbacks
+     */
+    // LocationManager locationManager = (LocationManager) mActivity.getSystemService(Context.LOCATION_SERVICE);
+    private static Location lastLocation;
+    private final LocationListener mOnLocationAvailableListener
+            = new LocationListener() {
+        @Override
+        public void onLocationChanged(Location location) {
+            lastLocation = location;
+        }
+
+        @Override
+        public void onStatusChanged(String provider, int status, Bundle extras) {
+
+        }
+
+        @Override
+        public void onProviderEnabled(String provider) {
+
+        }
+
+        @Override
+        public void onProviderDisabled(String provider) {
+
+        }
+    };
+
 
     /**
      * {@link CaptureRequest.Builder} for the camera preview
@@ -419,6 +460,7 @@ public class MainFragment extends Fragment
     public void onResume() {
         super.onResume();
         startBackgroundThread();
+        startLocationThread();
 
         // When the screen is turned off and turned back on, the SurfaceTexture is already
         // available, and "onSurfaceTextureAvailable" will not be called. In that case, we can open
@@ -630,6 +672,15 @@ public class MainFragment extends Fragment
     }
 
     /**
+     * Starts a location thread and its {@link Handler}
+     */
+    private void startLocationThread() {
+        mLocationThread = new HandlerThread("CameraLocation");
+        mLocationThread.start();
+        mLocationHandler = new Handler(mLocationThread.getLooper());
+    }
+
+    /**
      * Stops the background thread and its {@link Handler}.
      */
     private void stopBackgroundThread() {
@@ -638,6 +689,20 @@ public class MainFragment extends Fragment
             mBackgroundThread.join();
             mBackgroundThread = null;
             mBackgroundHandler = null;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Stops the location thread and its {@link Handler}.
+     */
+    private void stopLocationThread() {
+        mLocationThread.quitSafely();
+        try {
+            mLocationThread.join();
+            mLocationThread = null;
+            mLocationHandler = null;
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -896,6 +961,11 @@ public class MainFragment extends Fragment
                 File file = new File(mFile.getParentFile(), timestamp + ".jpg");
                 output = new FileOutputStream(file);
                 output.write(bytes);
+
+                Location location = lastLocation;
+                Entry target = new Entry(file, timestamp, location);
+
+                controller.addEntry(target);
             } catch (IOException e) {
                 e.printStackTrace();
             } finally {
@@ -909,7 +979,6 @@ public class MainFragment extends Fragment
                 }
             }
         }
-
     }
 
     /**
