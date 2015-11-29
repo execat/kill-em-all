@@ -26,11 +26,20 @@
         <activity
             android:name="ui.killemall.HitlistActivity"
             android:label="@string/title_activity_hitlist"
-            android:theme="@style/ListTheme"
-            android:parentActivityName="ui.killemall.MainActivity">
+            android:parentActivityName="ui.killemall.MainActivity"
+            android:theme="@style/ListTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ui.killemall.MainActivity" />
+        </activity>
+        <activity
+            android:name="ui.killemall.ShowActivity"
+            android:label="@string/title_activity_show"
+            android:parentActivityName="ui.killemall.HitlistActivity"
+            android:theme="@style/ListTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ui.killemall.HitlistActivity" />
         </activity>
     </application>
 
