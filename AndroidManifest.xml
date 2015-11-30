@@ -41,6 +41,15 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ui.killemall.HitlistActivity" />
         </activity>
+        <activity
+            android:name="ui.killemall.ObituariesActivity"
+            android:label="@string/title_activity_obituaries"
+            android:parentActivityName="ui.killemall.MainActivity"
+            android:theme="@style/ListTheme">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="ui.killemall.MainActivity" />
+        </activity>
     </application>
 
 </manifest>

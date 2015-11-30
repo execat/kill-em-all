@@ -23,7 +23,7 @@ import ui.killemall.model.EntryStatus;
 public class ShowActivity extends Activity {
     Entry current;
     Bundle extras;
-    EntryController controller;
+    final EntryController controller = new EntryController();
     final Activity activity = this;
 
     @Override
@@ -44,7 +44,18 @@ public class ShowActivity extends Activity {
 
         extras = getIntent().getExtras();
         int number = extras.getInt("NUMBER");
-        current = controller.fetch(number);
+        String status = extras.getString("STATUS");
+
+        if (status.equals("ALIVE")) {
+            current = controller.fetchAlive().get(number);
+        } else if (status.equals("DEAD")) {
+            current = controller.fetchDead().get(number);
+        }
+
+        if (current.getStatus().equals(EntryStatus.DEAD)) {
+            forgive.setEnabled(false);
+            virtualKill.setEnabled(false);
+        }
 
         date.setText(current.getDate());
         time.setText(current.getTime());

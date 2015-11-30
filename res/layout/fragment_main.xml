@@ -28,8 +28,8 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Obituary"
-            android:id="@+id/obituary"
+            android:text="Obituaries"
+            android:id="@+id/obituaries"
             android:layout_gravity="right|top" />
 
         <Button

@@ -450,7 +450,7 @@ public class MainFragment extends Fragment
         view.findViewById(R.id.picture).setOnClickListener(this);
         view.findViewById(R.id.info).setOnClickListener(this);
         view.findViewById(R.id.hitlist).setOnClickListener(this);
-        view.findViewById(R.id.obituary).setOnClickListener(this);
+        view.findViewById(R.id.obituaries).setOnClickListener(this);
         mTextureView = (AutoFitTextureView) view.findViewById(R.id.texture);
     }
 
@@ -929,10 +929,10 @@ public class MainFragment extends Fragment
                 activity.startActivity(intent);
                 break;
             }
-            case R.id.obituary: {
+            case R.id.obituaries: {
                 Activity activity = getActivity();
-                // Intent intent = new Intent(activity, HitlistActivity.class);
-                // activity.startActivity(intent);
+                Intent intent = new Intent(activity, ObituariesActivity.class);
+                activity.startActivity(intent);
                 break;
             }
             case R.id.picture: {

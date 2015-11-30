@@ -1,5 +1,11 @@
 package ui.killemall;
 
+import android.os.Bundle;
+import android.app.Activity;
+
+import com.example.android.camera2basic.R;
+
+
 import android.content.Intent;
 import android.location.Location;
 import android.os.Bundle;
@@ -19,7 +25,7 @@ import ui.killemall.model.Entry;
 import ui.killemall.model.EntryController;
 import ui.killemall.model.ListViewItem;
 
-public class HitlistActivity extends Activity {
+public class ObituariesActivity extends Activity {
     EntryController controller;
     ArrayList<Entry> data;
     ArrayList<ListViewItem> listViewItems;
@@ -37,7 +43,7 @@ public class HitlistActivity extends Activity {
         super.onResume();
 
         controller = new EntryController();
-        data = controller.fetchAlive();
+        data = controller.fetchDead();
         listViewItems = new ArrayList<ListViewItem>();
         for (Entry row : data) {
             Location location = row.getLocation();
@@ -63,7 +69,7 @@ public class HitlistActivity extends Activity {
                 public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
                     Intent intent = new Intent(view.getContext(), ShowActivity.class);
                     // Assign extra information about the click (edit contact or new contact)
-                    intent.putExtra("STATUS", "ALIVE");
+                    intent.putExtra("STATUS", "DEAD");
                     intent.putExtra("NUMBER", position);
                     startActivity(intent);
                 }

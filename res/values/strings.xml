@@ -8,4 +8,5 @@
     <string name="action_settings">Settings</string>
     <string name="action_add">Add</string>
     <string name="title_activity_show">Show</string>
+    <string name="title_activity_obituaries">Obituaries</string>
 </resources>
