@@ -1,3 +1,11 @@
+/**
+ * Class AutoFitTextureView:
+ *
+ * This class extends TextureView and makes it strechable over an aspect ratio
+ *
+ * author: Anuj More (atm140330)
+ */
+
 package ui.killemall;
 
 import android.content.Context;

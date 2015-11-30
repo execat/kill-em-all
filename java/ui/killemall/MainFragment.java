@@ -1,3 +1,11 @@
+/**
+ * Class MainFragment:
+ *
+ * This fragment contains the UI components of the home screen
+ *
+ * author: Anuj More (atm140330)
+ */
+
 package ui.killemall;
 
 import android.Manifest;

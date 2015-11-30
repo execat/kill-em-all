@@ -1,4 +1,12 @@
-package ui.killemall.model;
+/**
+ * Class ListViewItem:
+ *
+ * This class symbolizes the single list view item used by the custom adapter.
+ *
+ * author: Anuj More (atm140330)
+ */
+
+package ui.killemall;
 
 public class ListViewItem {
     String date;

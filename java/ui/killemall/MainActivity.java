@@ -1,3 +1,11 @@
+/**
+ * Class MainActivity:
+ *
+ * This class fires up the main camera screen by calling the fragment
+ *
+ * author: Anuj More (atm140330)
+ */
+
 package ui.killemall;
 
 import android.app.Activity;

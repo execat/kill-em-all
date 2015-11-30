@@ -1,29 +1,26 @@
+/**
+ * Class ObituariesActivity:
+ *
+ * This activity shows the obituaries list
+ *
+ * author: Anuj More (atm140330)
+ */
+
 package ui.killemall;
 
 import android.os.Bundle;
 import android.app.Activity;
-
 import com.example.android.camera2basic.R;
-
-
 import android.content.Intent;
 import android.location.Location;
-import android.os.Bundle;
-import android.app.Activity;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
-import com.example.android.camera2basic.R;
-
 import java.util.ArrayList;
-
-import ui.killemall.model.CustomAdapter;
 import ui.killemall.model.Entry;
 import ui.killemall.model.EntryController;
-import ui.killemall.model.ListViewItem;
 
 public class ObituariesActivity extends Activity {
     EntryController controller;

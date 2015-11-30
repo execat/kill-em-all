@@ -1,3 +1,11 @@
+/**
+ * Class ShowActivity:
+ *
+ * This activity shows the details of an entry (DEAD or ALIVE)
+ *
+ * author: Anuj More (atm140330)
+ */
+
 package ui.killemall;
 
 import android.content.Intent;
@@ -11,11 +19,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import com.example.android.camera2basic.R;
-
 import java.util.Locale;
-
 import ui.killemall.model.Entry;
 import ui.killemall.model.EntryController;
 import ui.killemall.model.EntryStatus;

@@ -1,10 +1,15 @@
+/**
+ * Class EntryController:
+ *
+ * This class is the controller to interact with the data store
+ *
+ * author: Anuj More (atm140330)
+ */
+
 package ui.killemall.model;
 
 import java.util.ArrayList;
 
-/**
- * Created by atm on 11/28/15.
- */
 public class EntryController {
     static FlatFileEntryDAO dao;
 

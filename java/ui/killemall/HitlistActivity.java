@@ -1,3 +1,11 @@
+/**
+ * Class HitlistActivity
+ *
+ * This activity shows the hitlist
+ *
+ * author: Anuj More (atm140330)
+ */
+
 package ui.killemall;
 
 import android.content.Intent;
@@ -14,10 +22,8 @@ import com.example.android.camera2basic.R;
 
 import java.util.ArrayList;
 
-import ui.killemall.model.CustomAdapter;
 import ui.killemall.model.Entry;
 import ui.killemall.model.EntryController;
-import ui.killemall.model.ListViewItem;
 
 public class HitlistActivity extends Activity {
     EntryController controller;

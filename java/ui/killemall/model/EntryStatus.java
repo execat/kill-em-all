@@ -1,8 +1,13 @@
+/**
+ * Enum EntryStatus:
+ *
+ * This enum lists all the possible states for an Entry Status
+ *
+ * author: Anuj More (atm140330)
+ */
+
 package ui.killemall.model;
 
-/**
- * Created by atm on 11/28/15.
- */
 public enum EntryStatus {
     ALIVE, DEAD
 }

@@ -1,11 +1,15 @@
-package ui.killemall.model;
-
 /**
- * Created by atm on 11/28/15.
+ * Class FlatFileEntryDAO:
+ *
+ * Disk access object class for writing entries to flat file
+ * This is where all the writing, reading, and updating of records happens.
+ *
+ * author: Anuj More (atm140330)
  */
 
+package ui.killemall.model;
+
 import android.location.Location;
-import android.os.Environment;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -13,20 +17,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 
-/**
- * Class FlatFileEntryDAO:
- *
- * Disk access object class for writing entrys to flat file
- * This is where all the writing, reading, and updating of records happens.
- *
- * author: Anuj More (atm140330)
- */
 public class FlatFileEntryDAO implements EntryDAO, Comparator<Entry> {
     // To read the data file
     private Reader reader;

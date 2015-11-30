@@ -1,4 +1,12 @@
-package ui.killemall.model;
+/**
+ * Class CustomAdapter:
+ *
+ * This class defines a custom adapter to hold the list item with the icon
+ *
+ * author: Anuj More (atm140330)
+ */
+
+package ui.killemall;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,18 +14,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-
 import com.example.android.camera2basic.R;
-
 import java.util.ArrayList;
 
-/**
- * Class CustomAdapter:
- *
- * This class defines a custom adapter to hold the full name and number with the icon
- *
- * author: Anuj More (atm140330)
- */
+import ui.killemall.ListViewItem;
+
 public class CustomAdapter extends BaseAdapter {
     private LayoutInflater inflater;
     private ArrayList<ListViewItem> items;

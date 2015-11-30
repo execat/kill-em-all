@@ -1,8 +1,13 @@
+/**
+ * Interface EntryDAO:
+ *
+ * This interface defines methods that EntryDAO objects should implement
+ *
+ * author: Anuj More (atm140330)
+ */
+
 package ui.killemall.model;
 
-/**
- * Created by atm on 11/28/15.
- */
 public interface EntryDAO extends DAO {
         Entry addEntry(Entry entry);
         Entry updateEntry(Entry oldEntry, Entry newEntry);
