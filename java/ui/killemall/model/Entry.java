@@ -90,4 +90,7 @@ public class Entry {
         return Double.toString(getLocation().getLatitude());
     }
 
+    public void setStatus(EntryStatus status) {
+        this.status = status;
+    }
 }

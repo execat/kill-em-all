@@ -1,10 +1,8 @@
 package ui.killemall;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.location.Location;
-import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.app.Activity;
@@ -20,6 +18,7 @@ import java.util.Locale;
 
 import ui.killemall.model.Entry;
 import ui.killemall.model.EntryController;
+import ui.killemall.model.EntryStatus;
 
 public class ShowActivity extends Activity {
     Entry current;
@@ -68,12 +67,10 @@ public class ShowActivity extends Activity {
         virtualKill.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                /*
-                Location l = current.getLocation();
-                String uri = String.format(Locale.ENGLISH, "geo:%f,%f", l.getLatitude(), l.getLongitude());
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
-                startActivity(intent);
-                */
+                int number = extras.getInt("NUMBER");
+                current.setStatus(EntryStatus.DEAD);
+                controller.updateEntryAt(number, current);
+                finish();
             }
         });
 
