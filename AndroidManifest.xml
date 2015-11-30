@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/MaterialTheme">
         <activity
-            android:name="ui.killemall.MainActivity"
+            android:name=".MainActivity"
             android:label="@string/app_name">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -24,27 +24,27 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="ui.killemall.HitlistActivity"
+            android:name=".HitlistActivity"
             android:label="@string/title_activity_hitlist"
-            android:parentActivityName="ui.killemall.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/ListTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ui.killemall.MainActivity" />
         </activity>
         <activity
-            android:name="ui.killemall.ShowActivity"
+            android:name=".ShowActivity"
             android:label="@string/title_activity_show"
-            android:parentActivityName="ui.killemall.HitlistActivity"
+            android:parentActivityName=".HitlistActivity"
             android:theme="@style/ListTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="ui.killemall.HitlistActivity" />
         </activity>
         <activity
-            android:name="ui.killemall.ObituariesActivity"
+            android:name=".ObituariesActivity"
             android:label="@string/title_activity_obituaries"
-            android:parentActivityName="ui.killemall.MainActivity"
+            android:parentActivityName=".MainActivity"
             android:theme="@style/ListTheme">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

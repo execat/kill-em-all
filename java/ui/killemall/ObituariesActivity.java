@@ -61,8 +61,6 @@ public class ObituariesActivity extends Activity {
         CustomAdapter adapter = new CustomAdapter(this, listViewItems, !listEmpty);
         listView.setAdapter(adapter);
 
-        icon.setImageDrawable(getResources().getDrawable(R.drawable.list_icon_dead));
-
         if (!listEmpty) {
             // Set click event on the list view
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
