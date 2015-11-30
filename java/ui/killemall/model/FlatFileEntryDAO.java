@@ -13,9 +13,11 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.Reader;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 
 /**
  * Class FlatFileEntryDAO:
@@ -72,7 +74,7 @@ public class FlatFileEntryDAO implements EntryDAO, Comparator<Entry> {
         data = prefetch();
 
         try {
-            String path = Environment.getExternalStorageDirectory() + dataPath;
+            String path = rootPath + dataPath;
             reader = new FileReader(path);
         } catch(FileNotFoundException e) {
             e.printStackTrace();
@@ -142,11 +144,19 @@ public class FlatFileEntryDAO implements EntryDAO, Comparator<Entry> {
         return sort();
     }
 
+    public ArrayList<Entry> fetchAlive() {
+        return aliveSort();
+    }
+
+    public ArrayList<Entry> fetchDead() {
+        return deadSort();
+    }
+
 
     /**
      * sort
      *
-     * Sorts the data list by first name
+     * Sorts the data list by file name
      * @return
      */
     private ArrayList<Entry> sort() {
@@ -158,6 +168,43 @@ public class FlatFileEntryDAO implements EntryDAO, Comparator<Entry> {
         return data;
     }
 
+    private ArrayList<Entry> aliveSort() {
+        Collections.sort(data, new Comparator<Entry>() {
+            public int compare(Entry lhs, Entry rhs) {
+                return lhs.getFile().compareTo(rhs.getFile());
+            }
+        });
+
+        ArrayList<Entry> list = new ArrayList();
+        Iterator iterator = data.iterator();
+        while(iterator.hasNext()) {
+            Entry entry = (Entry)iterator.next();
+            if(entry.getStatus() == EntryStatus.ALIVE) {
+                list.add(entry);
+            }
+        }
+
+        return list;
+    }
+
+    private ArrayList<Entry> deadSort() {
+        Collections.sort(data, new Comparator<Entry>() {
+            public int compare(Entry lhs, Entry rhs) {
+                return lhs.getFile().compareTo(rhs.getFile());
+            }
+        });
+
+        ArrayList<Entry> list = new ArrayList();
+        Iterator iterator = data.iterator();
+        while(iterator.hasNext()) {
+            Entry entry = (Entry)iterator.next();
+            if(entry.getStatus() == EntryStatus.DEAD) {
+                list.add(entry);
+            }
+        }
+
+        return list;
+    }
     /**
      * fetch
      *

@@ -38,7 +38,7 @@ public class Entry {
             locationString = Double.toString(location.getLongitude())
                     + separator + Double.toString(location.getLatitude());
         } else {
-            locationString = "NA" + separator + "NA";
+            locationString = "0.0" + separator + "0.0";
             System.out.println("FAILED LOCATION IS NULL");
         }
 
@@ -87,7 +87,7 @@ public class Entry {
     }
 
     public String getLatitude() {
-        return Double.toString(getLocation().getLongitude());
+        return Double.toString(getLocation().getLatitude());
     }
 
 }

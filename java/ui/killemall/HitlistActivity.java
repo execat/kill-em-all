@@ -37,7 +37,7 @@ public class HitlistActivity extends Activity {
         super.onResume();
 
         controller = new EntryController();
-        data = controller.fetchAll();
+        data = controller.fetchAlive();
         listViewItems = new ArrayList<ListViewItem>();
         for (Entry row : data) {
             Location location = row.getLocation();
@@ -49,7 +49,7 @@ public class HitlistActivity extends Activity {
 
         boolean listEmpty = listViewItems.isEmpty();
         if (listEmpty) {
-            listViewItems.add(new ListViewItem("Add a new item", "By clicking on the '+' icon above", ""));
+            listViewItems.add(new ListViewItem("Add an item -- Click '+'", "0", "0"));
         }
 
         listView = (ListView) findViewById(R.id.listView);
@@ -81,9 +81,7 @@ public class HitlistActivity extends Activity {
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
             case R.id.action_add:
-                Intent intent = new Intent(this, ShowActivity.class);
-                // Assign extra information about the click (edit contact or new contact)
-                this.startActivity(intent);
+                finish();
                 return true;
 
             default:

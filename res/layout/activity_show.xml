@@ -17,7 +17,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:hint="Date"
-        android:editable="true" />
+        android:editable="false" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -27,7 +27,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:hint="Time"
-        android:editable="true" />
+        android:editable="false" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -37,7 +37,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignEnd="@+id/time"
         android:hint="Longitude"
-        android:editable="true" />
+        android:editable="false" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -47,7 +47,7 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:hint="Latitude"
-        android:editable="true" />
+        android:editable="false" />
 
     <ImageView
         android:layout_width="wrap_content"
@@ -82,4 +82,5 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentEnd="true"
         android:layout_toEndOf="@+id/virtual_kill" />
+
 </RelativeLayout>

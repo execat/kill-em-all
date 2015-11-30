@@ -57,7 +57,9 @@ public class ShowActivity extends Activity {
             @Override
             public void onClick(View v) {
                 Location location = current.getLocation();
-                String uri = String.format(Locale.ENGLISH, "geo:%f,%f", location.getLatitude(), location.getLongitude());
+                String uri = String.format(Locale.ENGLISH, "geo:%f,%f?q=%f,%f",
+                        location.getLatitude(), location.getLongitude(),
+                        location.getLatitude(), location.getLongitude());
                 Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
                 startActivity(intent);
             }

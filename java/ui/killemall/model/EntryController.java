@@ -36,4 +36,14 @@ public class EntryController {
     public static Entry delete(int index) {
         return dao.deleteEntryAt(index);
     }
+
+    // Fetches entries that have the status ALIVE
+    public ArrayList<Entry> fetchAlive() {
+        return dao.fetchAlive();
+    }
+
+    // Fetches entries that have the status DEAD
+    public ArrayList<Entry> fetchDead() {
+        return dao.fetchDead();
+    }
 }
