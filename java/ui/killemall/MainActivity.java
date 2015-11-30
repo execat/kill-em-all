@@ -11,7 +11,7 @@ package ui.killemall;
 import android.app.Activity;
 import android.os.Bundle;
 
-import com.example.android.camera2basic.R;
+import ui.killemall.R;
 
 public class MainActivity extends Activity {
 

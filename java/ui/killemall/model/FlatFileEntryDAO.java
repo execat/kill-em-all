@@ -54,7 +54,7 @@ public class FlatFileEntryDAO implements EntryDAO, Comparator<Entry> {
     public FlatFileEntryDAO() {
         flatFileHeaders = new ArrayList<String>();
         data = new ArrayList<Entry>();
-        String rootPath = "/storage/emulated/0/Android/data/com.example.android.camera2basic/files/";
+        String rootPath = "/storage/emulated/0/Android/data/ui.killemall/files/";
 
         // Assures data file is created
         String dataPath = "data.txt";

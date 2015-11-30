@@ -35,15 +35,15 @@ public class ListViewItem {
     public String getLocation() {
         String l1, l2;
         if (longitude.charAt(0) == '-') {
-            l1 = longitude.substring(1) + " °W";
+            l1 = longitude.substring(1) + "°W";
         } else {
-            l1 = longitude + " °E";
+            l1 = longitude + "°E";
         }
 
         if (latitude.charAt(0) == '-') {
-            l2 = latitude.substring(1) + " °S";
+            l2 = latitude.substring(1) + "°S";
         } else {
-            l2 = latitude + " °N";
+            l2 = latitude + "°N";
         }
 
         return l1 + ", " + l2;

@@ -57,7 +57,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
-import com.example.android.camera2basic.R;
+import ui.killemall.R;
 
 import java.io.File;
 import java.io.FileOutputStream;

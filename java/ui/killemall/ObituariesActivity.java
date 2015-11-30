@@ -10,13 +10,14 @@ package ui.killemall;
 
 import android.os.Bundle;
 import android.app.Activity;
-import com.example.android.camera2basic.R;
+import ui.killemall.R;
 import android.content.Intent;
 import android.location.Location;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 import java.util.ArrayList;
 import ui.killemall.model.Entry;
@@ -56,8 +57,12 @@ public class ObituariesActivity extends Activity {
         }
 
         listView = (ListView) findViewById(R.id.listView);
+        ImageView icon = (ImageView) findViewById(R.id.imageView);
+
         CustomAdapter adapter = new CustomAdapter(this, listViewItems, !listEmpty);
         listView.setAdapter(adapter);
+
+        icon.setImageDrawable(getResources().getDrawable(R.drawable.list_icon_dead));
 
         if (!listEmpty) {
             // Set click event on the list view

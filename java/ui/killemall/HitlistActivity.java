@@ -18,7 +18,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
 
-import com.example.android.camera2basic.R;
+import ui.killemall.R;
 
 import java.util.ArrayList;
 

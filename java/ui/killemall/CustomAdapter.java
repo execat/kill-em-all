@@ -14,10 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
-import com.example.android.camera2basic.R;
 import java.util.ArrayList;
-
-import ui.killemall.ListViewItem;
 
 public class CustomAdapter extends BaseAdapter {
     private LayoutInflater inflater;
