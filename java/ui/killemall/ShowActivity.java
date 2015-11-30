@@ -19,7 +19,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-import ui.killemall.R;
 import java.util.Locale;
 import ui.killemall.model.Entry;
 import ui.killemall.model.EntryController;

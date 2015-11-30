@@ -17,11 +17,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-
-import ui.killemall.R;
-
 import java.util.ArrayList;
-
 import ui.killemall.model.Entry;
 import ui.killemall.model.EntryController;
 

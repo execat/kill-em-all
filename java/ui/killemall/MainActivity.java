@@ -11,8 +11,6 @@ package ui.killemall;
 import android.app.Activity;
 import android.os.Bundle;
 
-import ui.killemall.R;
-
 public class MainActivity extends Activity {
 
     @Override

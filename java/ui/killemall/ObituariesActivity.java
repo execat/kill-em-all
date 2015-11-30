@@ -10,7 +10,6 @@ package ui.killemall;
 
 import android.os.Bundle;
 import android.app.Activity;
-import ui.killemall.R;
 import android.content.Intent;
 import android.location.Location;
 import android.view.Menu;
