@@ -61,8 +61,8 @@ public class CustomAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.textView1.setText(items.get(position).getDate());
-        holder.textView2.setText(items.get(position).getTime());
+        holder.textView1.setText(items.get(position).getDateTime());
+        holder.textView2.setText(items.get(position).getLocation());
         return convertView;
     }
 

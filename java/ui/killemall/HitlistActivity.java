@@ -44,6 +44,7 @@ public class HitlistActivity extends Activity {
             String latitude = Double.toString(location.getLatitude());
             String longitude = Double.toString(location.getLongitude());
             listViewItems.add(new ListViewItem(row.getTimestamp(), latitude, longitude));
+            System.out.println("Added" + row);
         }
 
         boolean listEmpty = listViewItems.isEmpty();
@@ -60,9 +61,8 @@ public class HitlistActivity extends Activity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapter, View view, int position, long arg) {
-                    Intent intent = null; //new Intent(view.getContext(), ShowActivity.class);
+                    Intent intent = new Intent(view.getContext(), ShowActivity.class);
                     // Assign extra information about the click (edit contact or new contact)
-                    intent.putExtra("NEW_OR_EDIT", "edit");
                     intent.putExtra("NUMBER", position);
                     startActivity(intent);
                 }
@@ -83,7 +83,6 @@ public class HitlistActivity extends Activity {
             case R.id.action_add:
                 Intent intent = new Intent(this, ShowActivity.class);
                 // Assign extra information about the click (edit contact or new contact)
-                intent.putExtra("NEW_OR_EDIT", "new");
                 this.startActivity(intent);
                 return true;
 

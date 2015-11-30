@@ -978,7 +978,7 @@ public class MainFragment extends Fragment
             buffer.get(bytes);
             FileOutputStream output = null;
             try {
-                String timestamp = new SimpleDateFormat("yyyyMMdd-HHmmss").format(new Date());
+                String timestamp = new SimpleDateFormat("dd-MM-yyyy--HH:mm:ss").format(new Date());
                 File file = new File(mFile.getParentFile(), timestamp + ".jpg");
                 output = new FileOutputStream(file);
                 output.write(bytes);
